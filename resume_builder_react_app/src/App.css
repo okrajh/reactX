@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  color: #00adb5;
+}
+h3 {
+  font-style: italic;
+  text-decoration: underline;
+}
+h1,
+h2 {
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+li {
+  padding: 5px 0px;
+}
+.resume-container {
+  width: 55%;
+  margin: 0 auto;
+  background: #393e46;
+  color: #eeeeee;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 20px;
+  padding-bottom: 70px;
+  column-gap: 40px;
+  align-items: flex-start;
+}
+.resume-container > div {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #eeeeee;
+  padding-bottom: 10px;
+}

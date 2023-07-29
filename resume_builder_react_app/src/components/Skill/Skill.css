@@ -1,0 +1,12 @@
+.skill-container {
+  flex-basis: 45%;
+  order: 4;
+}
+.skill-item > span {
+  display: inline-block;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+.skill-item {
+  display: flex;
+}

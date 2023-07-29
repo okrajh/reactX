@@ -1,0 +1,29 @@
+.intro-container {
+  display: flex;
+  color: #eeeeee;
+  background: #222831;
+  flex-basis: 100%;
+  order: 1;
+  padding: 10px;
+  gap: 20px 30px;
+  margin-bottom: 20px;
+}
+
+.intro-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.left {
+  margin: auto 0;
+}
+.right {
+  margin: auto 0;
+}
+.right > h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+ul > li:not(:first-child) {
+  margin-left: 20px;
+}

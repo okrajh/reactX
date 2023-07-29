@@ -1,0 +1,16 @@
+.hobby-container {
+  order: 3;
+  flex-basis: 45%;
+}
+.hobby-container > div > span {
+  display: inline-block;
+}
+.hobby-container > h2 {
+}
+.hobby-container > div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-right: 40px;
+  gap: 10px 20px;
+}

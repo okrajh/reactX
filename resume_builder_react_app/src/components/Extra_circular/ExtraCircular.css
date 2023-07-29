@@ -1,0 +1,15 @@
+.ec-container {
+  order: 7;
+  flex-basis: 45%;
+}
+.ec-container > div > span {
+  display: inline-block;
+}
+
+.ec-container > div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  gap: 10px 20px;
+  padding-right: 40px;
+}

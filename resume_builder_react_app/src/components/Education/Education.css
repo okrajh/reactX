@@ -1,0 +1,13 @@
+.education-container {
+  flex-basis: 45%;
+  order: 2;
+}
+.education-container > h2 {
+}
+ul {
+  list-style-type: none;
+}
+ul > li {
+}
+ul li:not(:first-child) {
+}
