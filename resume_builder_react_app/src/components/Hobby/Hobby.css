@@ -5,8 +5,7 @@
 .hobby-container > div > span {
   display: inline-block;
 }
-.hobby-container > h2 {
-}
+
 .hobby-container > div {
   display: flex;
   flex-wrap: wrap;

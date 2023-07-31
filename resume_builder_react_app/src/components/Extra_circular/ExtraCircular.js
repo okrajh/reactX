@@ -1,15 +1,13 @@
 import "./ExtraCircular.css";
-export default function ExtraCircular() {
+export default function ExtraCircular({ extracurricularActivities }) {
+  let extraList = [];
+  for (let i in extracurricularActivities) {
+    extraList.push(<span>- {extracurricularActivities[i]}</span>);
+  }
   return (
     <div className="ec-container">
       <h2>Extra Circular</h2>
-      <div>
-        <span>Art</span>
-        <span>Dance</span>
-        <span>Cycling</span>
-        <span>Drama</span>
-        <span>Webseries</span>
-      </div>
+      <div>{extraList}</div>
     </div>
   );
 }

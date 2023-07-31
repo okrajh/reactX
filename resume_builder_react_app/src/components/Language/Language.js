@@ -1,15 +1,14 @@
 import "./Language.css";
-export default function Language() {
+export default function Language({ lang }) {
+  let langList = [];
+  for (let i in lang) {
+    langList.push(<span>- {lang[i]}</span>);
+  }
   return (
     <>
       <div className="lang-conatainer">
         <h2>Language</h2>
-        <div>
-          <span>English</span>
-          <span>English</span>
-          <span>English</span>
-          <span>English</span>
-        </div>
+        <div>{langList}</div>
       </div>
     </>
   );
