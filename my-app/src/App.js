@@ -18,7 +18,13 @@ export default function App(params) {
               {...video}
               width="400px"
             ></Video>
-            <PlayButton />
+            <PlayButton
+              message="play-msg"
+              onPlay={() => console.log("playyyy")}
+              onPause={() => console.log("pauseeee")}
+            >
+              Play
+            </PlayButton>
           </Border>
         ))}
       </div>
