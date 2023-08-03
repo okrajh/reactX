@@ -8,6 +8,9 @@ export default function ReactActions({}) {
     let img = ev.target;
     img.setAttribute("width", 200);
   }
+  function onDubleClickHandler(ev) {
+    alert("Double click event");
+  }
   return (
     <div className="react-actions-div">
       <img
@@ -18,7 +21,10 @@ export default function ReactActions({}) {
         onMouseOut={(ev) => onmouseoutHandle(ev)}
         style={{ animationDuration: "4s" }}
       />
-      <button onMouseOver={() => console.log("Hello Test !")}>
+      <button
+        onDoubleClick={(ev) => onDubleClickHandler(ev)}
+        onClick={() => console.log("On CLick Event")}
+      >
         Test Button
       </button>
       <input type="text" name="name" />
