@@ -1,6 +1,8 @@
 export const my_dictionary = {
   intro: {
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: `https://picsum.photos/id/${Math.floor(
+      Math.random() * 1000
+    )}/200/300`,
     name: "John Doe",
     title: "Software Engineer",
     introduction:

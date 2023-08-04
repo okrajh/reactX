@@ -36,3 +36,7 @@ li {
   border-bottom: 2px solid #eeeeee;
   padding-bottom: 10px;
 }
+
+button {
+  padding: 10px 20px;
+}

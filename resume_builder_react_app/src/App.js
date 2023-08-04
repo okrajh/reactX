@@ -10,8 +10,12 @@ import Hobby from "./components/Hobby/Hobby";
 import ExtraCircular from "./components/Extra_circular/ExtraCircular";
 import { my_dictionary } from "./data.js";
 export default function App() {
+  function onClickHandler(ev) {
+    window.print()
+  }
   return (
     <div className="resume-container">
+      <div><button onClick={(ev) => onClickHandler(ev)}>Print</button></div>
       {my_dictionary.hasOwnProperty("intro") ? (
         <Introduction {...my_dictionary["intro"]} />
       ) : (
