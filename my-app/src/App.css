@@ -1,18 +1,19 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
-body{
+body {
   background: #222831;
-  color: #EEEEEE;
+  color: #eeeeee;
 }
-.container{
+.container {
   margin-top: 30px;
   display: flex;
   justify-content: center;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
-.container>div{
+.container > div {
   text-align: left;
 }
