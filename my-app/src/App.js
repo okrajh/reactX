@@ -4,6 +4,7 @@ import { videos, items } from "./data.js";
 import Border from "./components/Border/Border";
 import List from "./components/List/List";
 import PlayButton from "./components/PlayButton/PlayButton";
+import Counter from "./components/Counter/Counter";
 export default function App(params) {
   return (
     <>
@@ -20,14 +21,16 @@ export default function App(params) {
             ></Video>
             <PlayButton
               message="play-msg"
-              onPlay={() => console.log("playyyy")}
-              onPause={() => console.log("pauseeee")}
+              onPlay={() => 'play'}
+              onPause={() => 'pause'}
             >
               Play
             </PlayButton>
           </Border>
         ))}
       </div>
+      <Counter />
+
     </>
   );
 }
