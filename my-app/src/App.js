@@ -1,36 +1,20 @@
-import Video from "./components/Video/Video";
+import { useState } from "react";
 import "./App.css";
-import { videos, items } from "./data.js";
-import Border from "./components/Border/Border";
-import List from "./components/List/List";
-import PlayButton from "./components/PlayButton/PlayButton";
-import Counter from "./components/Counter/Counter";
+import Form from "./components/Form/Form";
+import Video from "./components/Video/Video";
+import { videos } from './data.js'
+
 export default function App(params) {
+  const [videosList, setVideos] = useState(videos)
+
   return (
     <>
-      <h1>{params.des}</h1>
-      <h2 style={{ textAlign: "center" }}>User's Detials</h2>
-      <div className="container">
-        {videos.map((video) => (
-          <Border>
-            <Video
-              className="Video1"
-              key={video.id}
-              {...video}
-              width="400px"
-            ></Video>
-            <PlayButton
-              message="play-msg"
-              onPlay={() => 'play'}
-              onPause={() => 'pause'}
-            >
-              Play
-            </PlayButton>
-          </Border>
-        ))}
+      <Form addVideos={setVideos} videosList={videosList} ></Form>
+      <div className="row w-75 mx-auto">
+        {
+          videosList.map((video) => <Video {...video} setVideos={setVideos} />)
+        }
       </div>
-      <Counter />
-
     </>
   );
 }
