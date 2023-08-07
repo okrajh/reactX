@@ -12,10 +12,10 @@ export default function App(params) {
 
   return (
     <>
-      <Form addVideos={addVideos}></Form>
+      <Form key={101} addVideos={addVideos}></Form>
       <div className="row w-75 mx-auto">
         {
-          videosList.map((video) => <Video {...video} />)
+          videosList.map((video) => <Video {...video} key={video.id} />)
         }
       </div>
     </>
