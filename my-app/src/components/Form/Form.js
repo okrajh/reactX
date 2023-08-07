@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Form.css'
-export default function Form({ addVideos, videosList }) {
+export default function Form({ addVideos }) {
     const [video, setVideo] = useState({
         time: '1 month ago',
         channel: 'Coder Dost',
@@ -9,8 +9,7 @@ export default function Form({ addVideos, videosList }) {
     });
     function handleClick(ev) {
         ev.preventDefault()
-        addVideos([...videosList, video])
-        console.log(videosList)
+        addVideos(video)
     };
     function handleChange(ev) {
         setVideo({ ...video, [ev.target.name]: ev.target.value })
