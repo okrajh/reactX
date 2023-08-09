@@ -4,6 +4,7 @@ import Form from "./components/Form/Form";
 import Video from "./components/Video/Video";
 import { videos, sculptureList } from './data.js'
 import CardSlider from "./components/CardSlider/CardSlider";
+import Chat from "./components/Chat/Chat";
 
 export default function App(params) {
   const [videosList, setVideos] = useState(videos)
@@ -26,7 +27,7 @@ export default function App(params) {
   return (
     <>
       <Form key={101} addVideos={addVideos}></Form>
-      <div className="row w-75 mx-auto">
+      <div className="row w-75 mx-auto justify-content-center">
         {
           videosList.map((video) => <Video {...video} key={video.id} />)
         }
@@ -34,6 +35,9 @@ export default function App(params) {
 
       <div className="mx-auto mt-5 container row justify-content-center">
         <CardSlider {...sculpture} handleClick={handleClick} startIndex={index} lengthList={sculptureList.length} />
+      </div>
+      <div className="mx-auto mt-5 container row justify-content-center">
+        <Chat />
       </div>
     </>
   );
