@@ -1,9 +1,13 @@
 import "./Video.css"
-export default function Video({ id, publish, title, chanle, views, time, src }) {
+export default function Video({ id, publish, title, chanle, views, time, src, deleteVideo }) {
     return (
         <>
-            <div className="video-box col-md-3 justify-content-start">
+            <div className="video-box position-relative col-md-3 justify-content-start">
+                <div className="position-absolute left-0 bottom-0">
+                    <button className="btn btn-danger" onClick={() => deleteVideo(id)}>X</button>
+                </div>
                 <div className="item">
+
                     <div className="pic">
                         <img className="img-fluid img-thumbnail rounded" src={src} />
                     </div>
