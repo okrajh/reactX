@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Form.css'
-export default function Form({ addVideos }) {
-    const initialState = {
 
+export default function Form({ addVideos, editableVideo, updateVideo, setEditableVideo }) {
+
+    const initialState = {
         time: '1 month ago',
         channel: 'Coder Dost',
         verified: true,
@@ -11,14 +12,29 @@ export default function Form({ addVideos }) {
         views: ''
     }
     const [video, setVideo] = useState(initialState);
+
     function handleClick(ev) {
         ev.preventDefault();
-        addVideos(video);
+        if (editableVideo) {
+            updateVideo(video)
+            setEditableVideo(null)
+        }
+        else {
+            addVideos(video);
+        }
         setVideo(initialState);
     };
+
     function handleChange(ev) {
         setVideo({ ...video, [ev.target.name]: ev.target.value, id: (ev.target.name).length + 1 })
     }
+
+    useEffect(() => {
+        if (editableVideo) {
+            setVideo({ ...editableVideo })
+        }
+    }, [editableVideo])
+
     return (
         <div className="form-div w-25 mx-auto mb-5">
             <form>
@@ -30,7 +46,7 @@ export default function Form({ addVideos }) {
                     <label htmlFor="exampleInputPassword1" className="form-label">Views</label>
                     <input type="text" value={video.views} name="views" onChange={handleChange} className="form-control" id="exampleInputPassword1" />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleClick}>Add </button>
+                <button type="submit" className="btn btn-primary" onClick={handleClick}>{editableVideo ? 'Edit' : 'Add'} </button>
             </form>
         </div>
     )
