@@ -14,18 +14,15 @@ export default function App(params) {
   const [editableVideo, setEditableVideo] = useState(null);
 
   function addVideos(video) {
-    setVideos([...videosList, { ...video, id: video.length + 1 }])
+    setVideos([...videosList, { ...video }])
   }
 
   function deleteVideo(id) {
-    setVideos(videos.filter(video => video.id != id))
+    setVideos(videos.filter(video => video.id !== id))
   }
 
   function editVideo(id) {
-    console.log("App.js", id)
-    setEditableVideo(videos.find(video => video.id == id))
-    console.log(videos.find(video => video.id == id))
-
+    setEditableVideo(...videosList.filter(v => v.id === id))
   }
 
   function handleClick(ev) {
@@ -39,14 +36,9 @@ export default function App(params) {
     setSculpture(sculptureList[index])
   }
 
-  function updateVideo(video) {
-    console.log(video)
-    const cid = videos.findIndex(v => v.id === video.id)
-    console.log(cid)
-    const newVideos = [...videos]
-    newVideos.splice(cid, 1, video)
-    console.log(newVideos)
-    setVideos([...newVideos])
+  function updateVideo(video, id) {
+    let index = videosList.findIndex((v) => v.id === id)
+    videosList.splice(index, 1, video)
 
   }
 

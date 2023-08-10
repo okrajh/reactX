@@ -13,21 +13,19 @@ export default function Form({ addVideos, editableVideo, updateVideo, setEditabl
     }
     const [video, setVideo] = useState(initialState);
 
-    function handleClick(ev) {
+    function handleChange(ev) {
+        setVideo({ ...video, [ev.target.name]: ev.target.value, id: ev.target.value.length + Math.floor(Math.random() * 1000) })
+    }
+    function handleEditAdd(ev) {
         ev.preventDefault();
         if (editableVideo) {
-            updateVideo(video)
+            updateVideo(video, editableVideo.id)
             setEditableVideo(null)
         }
         else {
             addVideos(video);
         }
-        setVideo(initialState);
     };
-
-    function handleChange(ev) {
-        setVideo({ ...video, [ev.target.name]: ev.target.value, id: (ev.target.name).length + 1 })
-    }
 
     useEffect(() => {
         if (editableVideo) {
@@ -46,7 +44,7 @@ export default function Form({ addVideos, editableVideo, updateVideo, setEditabl
                     <label htmlFor="exampleInputPassword1" className="form-label">Views</label>
                     <input type="text" value={video.views} name="views" onChange={handleChange} className="form-control" id="exampleInputPassword1" />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleClick}>{editableVideo ? 'Edit' : 'Add'} </button>
+                <button type="submit" className="btn btn-primary" onClick={handleEditAdd}>{editableVideo ? 'Edit' : 'Add'} </button>
             </form>
         </div>
     )
