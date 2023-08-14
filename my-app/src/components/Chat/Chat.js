@@ -11,7 +11,6 @@ export default function Chat({ }) {
     }
     function sendMessage(ev) {
         ev.preventDefault()
-        console.log(user, " , ", message)
     }
     return (
         <div className="col-md-4 shadow">

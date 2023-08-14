@@ -1,24 +1,43 @@
-import { useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import "./App.css";
 import Form from "./components/Form/Form";
 import Video from "./components/Video/Video";
 import { videos, sculptureList } from './data.js'
 import CardSlider from "./components/CardSlider/CardSlider";
 import Chat from "./components/Chat/Chat";
-
+import ThemeCotext from "./components/Context/ThemeContext";
 export default function App(params) {
 
-  const [videosList, setVideos] = useState(videos)
+  function videoReducer(videosList, action) {
+    switch (action.type) {
+      case 'ADD':
+        return [...videosList, { ...action.payload }]
+      case 'DEL':
+        return [...videosList.filter(video => video.id !== action.payload)]
+      case 'UPD':
+        let index = videosList.findIndex((v) => v.id === action.payload.id)
+        const newVList = [...videosList]
+        newVList.splice(index, 1, action.payload.video)
+        return newVList
+      default:
+        return videosList
+    }
+  }
+  const [videosList, dispatch] = useReducer(videoReducer, videos)
   const [index, setIndex] = useState(0)
   const [sculpture, setSculpture] = useState(sculptureList[index]);
   const [editableVideo, setEditableVideo] = useState(null);
 
+  // !Context
+
+  const   = useContext(ThemeCotext);
+  console.log(themeContext)
   function addVideos(video) {
-    setVideos([...videosList, { ...video }])
+    dispatch({ type: 'ADD', payload: video })
   }
 
   function deleteVideo(id) {
-    setVideos(videos.filter(video => video.id !== id))
+    dispatch({ type: 'DEL', payload: id })
   }
 
   function editVideo(id) {
@@ -26,7 +45,6 @@ export default function App(params) {
   }
 
   function handleClick(ev) {
-    console.log(index, sculptureList.length)
     if (index >= sculptureList.length - 1) {
       setIndex(0)
     }
@@ -37,9 +55,7 @@ export default function App(params) {
   }
 
   function updateVideo(video, id) {
-    let index = videosList.findIndex((v) => v.id === id)
-    videosList.splice(index, 1, video)
-
+    dispatch({ type: 'UPD', payload: { video: video, id: id } })
   }
 
   return (
